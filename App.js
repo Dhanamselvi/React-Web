@@ -1,9 +1,10 @@
 /*
-    How do we create the nested Element in React
+    How do we create the Sibling Element in React
 
         <div id="parent">
             <div id="child">
-                <h1>Hello world from the React </h1>
+                <h1>Sibling 1 </h1>
+                <h2>Sibling 2 </h2>
             </div>
         </div>
 */
@@ -16,11 +17,18 @@ const parent = React.createElement(
     React.createElement(
         "div",
         {id:"child"},
-        React.createElement(
-            "h1",
-            {},
-            "Nested Element from the React"
-        )
+        [
+            React.createElement(
+                "h1",
+                {},
+                "Sibling 1"
+            ),
+            React.createElement(
+                "h2",
+                {},
+                "Sibling 2"
+            ),
+        ]
     )
 );
 
