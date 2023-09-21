@@ -1,63 +1,31 @@
 import React from "react";
-import ReactDOM from "react-dom/client"
-/*
-    How do we create the complicated Nested Sibling Element in React
+import ReactDOM from "react-dom/client";
 
-        <div id="parent">
-            <div id="child1">
-                <h1>Child 1 - Sibling 1 </h1>
-                <h2>Child 1 - Sibling 2 </h2>
-            </div>
-             <div id="child2">
-                <h1>Child 2 - Sibling 1 </h1>
-                <h2>Child 2 - Sibling 2 </h2>
-            </div>
+// React Element
+const heading = (
+                    <h1>
+                        React JSX (React Element)
+                    </h1>
+                );
+
+const Title = () => {
+    return (
+        <h2>React Functional Component Title</h2>
+    )
+}
+// React Functionl Component
+const HeadingComponent = () =>{
+    return (
+        <div id="container">
+            <Title />
+            {heading}
+            <h1>React Functional Component Heading</h1>
         </div>
-*/
+    )
+}
 
-// ReactElement(Object) => HTML(Browser Understands)
-
-const parent = React.createElement(
-    "div",
-    {id:"parent"},
-    [
-        React.createElement(
-            "div",
-            {id:"child1"},
-            [
-                React.createElement(
-                    "h1",
-                    {},
-                    "Child 1 - Sibling 1"
-                ),
-                React.createElement(
-                    "h2",
-                    {},
-                    "Child 1 - Sibling 2"
-                ),
-            ]
-        ),
-        React.createElement(
-            "div",
-            {id:"child2"},
-            [
-                React.createElement(
-                    "h1",
-                    {},
-                    "Child 2 - Sibling 1"
-                ),
-                React.createElement(
-                    "h2",
-                    {},
-                    "Child 2 - Sibling 2"
-                ),
-            ]
-        )
-    ]
-    
-);
-
-console.log(parent) // object
+console.log(Title()) // Object
+console.log(HeadingComponent()) // Object
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(parent);
+root.render(<HeadingComponent/>);
