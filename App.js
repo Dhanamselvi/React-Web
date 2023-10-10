@@ -930,68 +930,26 @@ const Header = () =>{
     )
 }
 
-// Props
-const RestaurantCard = (props) =>{
-    return(
-        <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
-            <img alt="res-logo"
-                 src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/qbotu2rxeirsgno74dl4" 
-                 className="res-logo"
-            />
-            <h3>{props.resName}</h3>
-            <h4>{props.cuisine}</h4>
-            <h4>4.4 stars</h4>
-            <h4>38 minutes</h4>
-        </div>
-    )
-}
-// Destructring
-const RestaurantCard1 = ({resName,cuisine}) =>{
-    return(
-        <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
-            <img alt="res-logo"
-                 src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/qbotu2rxeirsgno74dl4" 
-                 className="res-logo"
-            />
-            <h3>{resName}</h3>
-            <h4>{cuisine}</h4>
-            <h4>4.4 stars</h4>
-            <h4>38 minutes</h4>
-        </div>
-    )
-}
-
-// Destructring Inside the Component
-const RestaurantCard2 = (props) =>{
-    const {resName,cuisine} = props
-    return(
-        <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
-            <img alt="res-logo"
-                 src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/qbotu2rxeirsgno74dl4" 
-                 className="res-logo"
-            />
-            <h3>{resName}</h3>
-            <h4>{cuisine}</h4>
-            <h4>4.4 stars</h4>
-            <h4>38 minutes</h4>
-        </div>
-    )
-}
-
 // Destructring Live API in the Component
 const RestaurantCardWithLiveAPI = (props) =>{
-    const {resData} = props
-    console.log(resData)
+    const {resData} = props;
+    const { id,
+            cloudinaryImageId,
+            name,
+            cuisines,
+            avgRating,
+            deliveryTime
+          } = resData?.info;
     return(
         <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
             <img alt="res-logo"
-                 src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + resData.info.cloudinaryImageId} 
+                 src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/" + cloudinaryImageId} 
                  className="res-logo"
             />
-            <h3>{resData.info.name}</h3>
-            <h4>{resData.info.cuisines.join(", ")}</h4>
-            <h4>{resData.info.avgRating} stars</h4>
-            <h4>{resData.info.sla.deliveryTime} minutes</h4>
+            <h3>{name}</h3>
+            <h4>{cuisines.join(", ")}</h4>
+            <h4>{avgRating} stars</h4>
+            <h4>{deliveryTime} minutes</h4>
         </div>
     )
 }
@@ -1001,11 +959,9 @@ const Body = () => {
         <div className="body">
             <div className="search">Search</div>
             <div className="res-container">
-                <RestaurantCard resName="Meghana Foods" cuisine="Biryani,Asian,North Indian"/>
-                <RestaurantCard1 resName="KFC" cuisine="Burger, Fast Food"/>
-                <RestaurantCard2 resName="McDonals" cuisine="Pizza"/>
-                <RestaurantCardWithLiveAPI resData={resList[0]} />
-                <RestaurantCardWithLiveAPI resData={resList[1]} />
+                {
+                    resList.map(restaurant => <RestaurantCardWithLiveAPI key={restaurant.info.id} resData={restaurant}/>)
+                }
             </div>
         </div>
     )
