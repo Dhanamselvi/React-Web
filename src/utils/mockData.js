@@ -96,7 +96,7 @@ const resList = [
             "cuisines": [
                 "Indian"
             ],
-            "avgRating": 4.2,
+            "avgRating": 3.2,
             "feeDetails": {
                 "restaurantId": "10108",
                 "fees": [
@@ -258,7 +258,7 @@ const resList = [
                 "Cafe",
                 "Desserts"
             ],
-            "avgRating": 4.2,
+            "avgRating": 3.2,
             "feeDetails": {
                 "restaurantId": "410398",
                 "fees": [
@@ -509,7 +509,7 @@ const resList = [
                 "Desserts",
                 "Ice Cream"
             ],
-            "avgRating": 4.4,
+            "avgRating": 3.4,
             "veg": true,
             "feeDetails": {
                 "restaurantId": "47812",
@@ -611,7 +611,7 @@ const resList = [
                 "Desserts",
                 "Beverages"
             ],
-            "avgRating": 4.1,
+            "avgRating": 3.1,
             "feeDetails": {
                 "restaurantId": "9358",
                 "fees": [
