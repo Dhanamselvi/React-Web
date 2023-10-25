@@ -53,3 +53,6 @@
 .loginBtn{
     padding: 0 20px;
 }
+.filter{
+    display: flex;
+}
